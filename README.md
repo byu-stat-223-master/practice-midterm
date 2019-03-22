@@ -1,7 +1,3 @@
-+ Make sure that you follow proper [coding standards](coding-standards.html).
-Pay particularly close attention to code formatting (it should look nice) and
-don't duplicate code - look to create functions whenever you can.
-    
 ## Orchard (60 points)
 For Christmas my daughters received the game [First
 Orchard](https://www.habausa.com/my-very-first-games-first-orchard/){target="_blank"}.
@@ -70,7 +66,7 @@ nothing
 your 5 tickets. Otherwise, you win $(5 * 2) + 1 = 11$ tickets. This pattern of
 earnings up to spin 50 can be represented with the following equation:
 
-![equation](https://latex.codecogs.com/gif.latex?%5Ctext%7Bearnings%7D%20%3D%205n%20&plus;%20%28n%20-%201%29%5Csubstack%7Bn%5C%2C%5Cin%5C%7B1%2C2%2C3%2C...%2C50%5C%7D%7D)
+![](https://latex.codecogs.com/gif.latex?%5Ctext%7Bearnings%7D%20%3D%205n%20&plus;%20%28n%20-%201%29%5Csubstack%7Bn%5C%2C%5Cin%5C%7B1%2C2%2C3%2C...%2C50%5C%7D%7D)
 
 According to this formula, the maximum tickets you could earn would be 299. The
 stuffed rat you have your eye on costs only 20 tickets. Using a simulation
@@ -85,4 +81,6 @@ the results. (10 points)
 likelihood that you win enough tickets to get the stuffed rat. (10 points)
 4. Build a 95% confidence interval on the estimate you calculated. (10 points)
 
-#### **Make sure you commit your changes to git and push to GitHub**
+*Make sure that you follow proper coding standards. Pay particularly close
+attention to code formatting (it should look nice) and don't duplicate code -
+look to create functions whenever you can.*
