@@ -1,6 +1,6 @@
 ## Orchard (60 points)
 For Christmas my daughters received the game [First
-Orchard](https://www.habausa.com/my-very-first-games-first-orchard/){target="_blank"}.
+Orchard](https://www.habausa.com/my-very-first-games-first-orchard/).
 The premise of the game is as follows:
 
 * There is an orchard of 4 unique fruit trees, each of which has 4 pieces of
