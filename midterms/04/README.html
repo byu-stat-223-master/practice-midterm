@@ -600,47 +600,28 @@ body {
 
 <body>
 
-<h2 id="orchard-60-points">Orchard (60 points)</h2>
-<p>For Christmas my daughters received the game <a href="https://www.habausa.com/my-very-first-games-first-orchard/">First Orchard</a>. The premise of the game is as follows:</p>
-<ul>
-<li>There is an orchard of 4 unique fruit trees, each of which has 4 pieces of fruit (each tree contains only one type of fruit, so there are 4 different types of fruit in the game)</li>
-<li>There is a raven trying to make it to the orchard before all the fruit is harvested into a fruit basket</li>
-</ul>
-<p>Each turn of the game, a player rolls a six sided die. Four of the sides of the die correspond to the four different fruit trees in the orchard. One side of the die shows a fruit basket, and the remaining side shows a raven. If a player rolls a fruit, they select one fruit from that tree and place it in the fruit basket. If the tree that was rolled doesn’t have any fruit left, nothing happens and the turn ends. If a player rolls the fruit basket, they choose a single fruit from any tree and place it in the fruit basket. If a player rolls the raven, the raven moves one step closer to the orchard.</p>
-<p>The game ends when one of two things happen: Either all of the fruit is harvested into the fruit basket <strong>or</strong> the raven reaches the orchard. The raven must be rolled 6 times in order to each the orchard. If the raven reaches the orchard before all the fruit is harvested, the game is considered lost.</p>
-<p>Most of this game is luck based only on the roll of the die. However, there is some small strategy involved when the fruit basket is rolled. We’ll consider the following two strategies:</p>
-<ul>
-<li>Highest: When the fruit basket is rolled, the player choose a fruit from the tree with the most remaining fruits and places it in the fruit basket.</li>
-<li>Random: When the fruit basket is rolled, the player randomly selects one of the remaining fruit and places it in the fruit basket.</li>
-</ul>
-<!-- end list -->
-
+<h2 id="mike-trout-45-points">Mike Trout (45 points)</h2>
+<p>In 2018, Mike Trout (the best baseball player in MLB) had an On Base percentage of .460, meaning that he made an out 54 percent of the time. In this hypothetical simulation, Mike Trout is able to bat over and over again. When Mike Trout doesn’t make an out, he hits a home run 15 percent of the time. Once Mike Trout makes 27 outs, a game is over.</p>
 <ol>
-<li>Create a function called <code>orchard</code>. This function should take a single argument <code>strategy</code> that is either <code>&quot;random&quot;</code> or <code>&quot;highest&quot;</code>, indicating which of the above strategies will be used. The function should simulate playing the game one time using the given strategy and return either <code>TRUE</code> or <code>FALSE</code> based on whether or not the players won the game. In other words, if all the fruit is harvested, the function should return <code>TRUE</code>. If the raven advances six spaces before all the fruit is harvested the function should return <code>FALSE</code>. (20 points)</li>
-<li>Using the <code>orchard</code> function from the previous step, simulate playing this game with each strategy 10,000 times and store the results. (15 points)</li>
-<li>Based on the results obtained in step 2, calculate an estimate for the likelihood of winning (collecting all the fruit before the raven reaches the orchard) for each strategy. (10 points)</li>
-<li>Build a 95% confidence interval on the estimates you calculated in step 3. (10 points)</li>
-<li>Based on your estimates and associated confidence intervals, is one strategy better than the other? Explain your reasoning. (5 points)</li>
+<li><p>Write a function that simulates a game and returns the amount of home runs Mike Trout will hit in that game. (10 points)</p></li>
+<li><p>Using the function you’ve written, simulate 10,000 games and store the results. (10 points)</p></li>
+<li><p>Using the results from step 2, what is the expected number of home runs Mike Trout hits in this scenario? (5 points)</p></li>
+<li><p>Calculate a 95% confidence interval on your results from step 3. (5 points)</p></li>
+<li><p>You attend one of these hypothetical games, and Mike Trout doesn’t hit a single home run. Based on your simulation, what is the likelihood that this happens (be sure to assess Monte Carlo error in your answer)? (15 points)</p></li>
 </ol>
-<h2 id="spin-the-wheel-45-points">Spin the Wheel (45 points)</h2>
-<p>You are at a carnival playing a “Spin the Wheel” type game. Eager to win a stuffed rat, you wait over an hour in line to play. The rules of the game are as follows:</p>
-<ul>
-<li>You pay 1 ticket to play</li>
-<li>You spin a fair spinner divided into 10 parts</li>
-<li>You keep spinning until you land on a number other than 1, 5, 7 or until you’ve spun 50 times</li>
-<li>If the first spin results in number other than 1, 5, or 7, you lose and win nothing</li>
-<li>If you land on a 1, 5, or 7 you win 5 tickets and spin again</li>
-<li>If the second spin results in a number other than 1, 5, or 7 you lose and take your 5 tickets. Otherwise, you win ((5 * 2) + 1 = 11) tickets. This pattern of earnings up to spin 50 can be represented with the following equation:</li>
-</ul>
-<p>[ earnings = 5n + (n-1) \ n \in {1,2,3,...,50} ]</p>
-<p>According to this formula, the maximum tickets you could earn would be 299. The stuffed rat you have your eye on costs only 20 tickets. Using a simulation study, determine the likelihood that you’ll be able to afford the stuffed rat after playing the game.</p>
+<h2 id="vivint-60-points">Vivint (60 points)</h2>
+<p>You work as a member of the Business Analytics team at Vivint. You’ve been asked to help with a supply chain problem. Vivint knows that doorbell cameras need to be replaced 3% of the time and that 78% of Vivint customers own doorbell cameras.</p>
+<p>Each day, Vivint field technicians are out working with customers to repair and replace equipment. The number of appointments a field technician makes on a weekday is modeled by a Poisson distribution with (\lambda = 7). The number of appointments on the weekend is modeled after a Poisson distribution with (\lambda = 3). It is known that 13% of appointments are either cancelled the day of or the customer simply isn’t there for the appointment (a no show).</p>
+<p>There are 150 total technicians in the field. However, on any given day, the number of technicians that either take time off or call in sick is modeled by a Poisson distribution with (\lambda = 10).</p>
+<p>Your task is to provide a reliable estimate of the total number of doorbell cameras that need to be ordered each week in order to provide the technicians with the appropriate number of cameras.</p>
+<p><em>Note, you can draw values from a Poisson distribution in R with the <code>rpois()</code> function.</em></p>
 <ol>
-<li>Create a function called <code>spinner</code>. This function should simulate playing this carnival game 1 time and return the number of tickets you won. (15 points)</li>
-<li>Using the function defined above, simulate the game 10,000 times and store the results. (10 points)</li>
-<li>Using the values calculated in step 2, calculate an estimate of the likelihood that you win enough tickets to get the stuffed rat. (10 points)</li>
-<li>Build a 95% confidence interval on the estimate you calculated. (10 points)</li>
+<li><p>Write a function that simulates a single week and returns the number of doorbell cameras that are needed. (25 points)</p></li>
+<li><p>Using the function you’ve written, simulate 10,000 weeks and store the results. (10 points)</p></li>
+<li><p>Using the results from the previous step, calculate an estimate for the number of doorbell cameras needed each week. (5 points)</p></li>
+<li><p>Calculate a 95% confidence interval on your results from step 3. (5 points)</p></li>
+<li><p>The field support team is considering hiring an additional 10 technicians. How does this impact the number of doorbell cameras that need to be ordered each week? (15 points)</p></li>
 </ol>
-<p><em>Make sure that you follow proper coding standards. Pay particularly close attention to code formatting (it should look nice) and don’t duplicate code - look to create functions whenever you can.</em></p>
 
 </body>
 </html>

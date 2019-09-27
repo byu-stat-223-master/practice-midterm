@@ -600,47 +600,21 @@ body {
 
 <body>
 
-<h2 id="orchard-60-points">Orchard (60 points)</h2>
-<p>For Christmas my daughters received the game <a href="https://www.habausa.com/my-very-first-games-first-orchard/">First Orchard</a>. The premise of the game is as follows:</p>
-<ul>
-<li>There is an orchard of 4 unique fruit trees, each of which has 4 pieces of fruit (each tree contains only one type of fruit, so there are 4 different types of fruit in the game)</li>
-<li>There is a raven trying to make it to the orchard before all the fruit is harvested into a fruit basket</li>
-</ul>
-<p>Each turn of the game, a player rolls a six sided die. Four of the sides of the die correspond to the four different fruit trees in the orchard. One side of the die shows a fruit basket, and the remaining side shows a raven. If a player rolls a fruit, they select one fruit from that tree and place it in the fruit basket. If the tree that was rolled doesn’t have any fruit left, nothing happens and the turn ends. If a player rolls the fruit basket, they choose a single fruit from any tree and place it in the fruit basket. If a player rolls the raven, the raven moves one step closer to the orchard.</p>
-<p>The game ends when one of two things happen: Either all of the fruit is harvested into the fruit basket <strong>or</strong> the raven reaches the orchard. The raven must be rolled 6 times in order to each the orchard. If the raven reaches the orchard before all the fruit is harvested, the game is considered lost.</p>
-<p>Most of this game is luck based only on the roll of the die. However, there is some small strategy involved when the fruit basket is rolled. We’ll consider the following two strategies:</p>
-<ul>
-<li>Highest: When the fruit basket is rolled, the player choose a fruit from the tree with the most remaining fruits and places it in the fruit basket.</li>
-<li>Random: When the fruit basket is rolled, the player randomly selects one of the remaining fruit and places it in the fruit basket.</li>
-</ul>
-<!-- end list -->
-
-<ol>
-<li>Create a function called <code>orchard</code>. This function should take a single argument <code>strategy</code> that is either <code>&quot;random&quot;</code> or <code>&quot;highest&quot;</code>, indicating which of the above strategies will be used. The function should simulate playing the game one time using the given strategy and return either <code>TRUE</code> or <code>FALSE</code> based on whether or not the players won the game. In other words, if all the fruit is harvested, the function should return <code>TRUE</code>. If the raven advances six spaces before all the fruit is harvested the function should return <code>FALSE</code>. (20 points)</li>
-<li>Using the <code>orchard</code> function from the previous step, simulate playing this game with each strategy 10,000 times and store the results. (15 points)</li>
-<li>Based on the results obtained in step 2, calculate an estimate for the likelihood of winning (collecting all the fruit before the raven reaches the orchard) for each strategy. (10 points)</li>
-<li>Build a 95% confidence interval on the estimates you calculated in step 3. (10 points)</li>
-<li>Based on your estimates and associated confidence intervals, is one strategy better than the other? Explain your reasoning. (5 points)</li>
-</ol>
-<h2 id="spin-the-wheel-45-points">Spin the Wheel (45 points)</h2>
-<p>You are at a carnival playing a “Spin the Wheel” type game. Eager to win a stuffed rat, you wait over an hour in line to play. The rules of the game are as follows:</p>
-<ul>
-<li>You pay 1 ticket to play</li>
-<li>You spin a fair spinner divided into 10 parts</li>
-<li>You keep spinning until you land on a number other than 1, 5, 7 or until you’ve spun 50 times</li>
-<li>If the first spin results in number other than 1, 5, or 7, you lose and win nothing</li>
-<li>If you land on a 1, 5, or 7 you win 5 tickets and spin again</li>
-<li>If the second spin results in a number other than 1, 5, or 7 you lose and take your 5 tickets. Otherwise, you win ((5 * 2) + 1 = 11) tickets. This pattern of earnings up to spin 50 can be represented with the following equation:</li>
-</ul>
-<p>[ earnings = 5n + (n-1) \ n \in {1,2,3,...,50} ]</p>
-<p>According to this formula, the maximum tickets you could earn would be 299. The stuffed rat you have your eye on costs only 20 tickets. Using a simulation study, determine the likelihood that you’ll be able to afford the stuffed rat after playing the game.</p>
-<ol>
-<li>Create a function called <code>spinner</code>. This function should simulate playing this carnival game 1 time and return the number of tickets you won. (15 points)</li>
-<li>Using the function defined above, simulate the game 10,000 times and store the results. (10 points)</li>
-<li>Using the values calculated in step 2, calculate an estimate of the likelihood that you win enough tickets to get the stuffed rat. (10 points)</li>
-<li>Build a 95% confidence interval on the estimate you calculated. (10 points)</li>
-</ol>
-<p><em>Make sure that you follow proper coding standards. Pay particularly close attention to code formatting (it should look nice) and don’t duplicate code - look to create functions whenever you can.</em></p>
+<h2 id="drips-60-points">Drips (60 points)</h2>
+<p>You notice that the sink in your bathroom has an annoying drip. The number of drips every minute is random. Specifically, suppose that the number of drips in a minute is initially a Poisson random variable with a rate parameter <code>rate</code>. (You don’t need to know anything about the Poisson distribution except that you can sample a random value from the Poisson distribution with parameter <code>rate</code> in R with the code: <code>rpois(1, rate)</code>.) Unfortunately, the severity of the leak is increasing.<br />
+Specifically, with each passing minute, the rate parameter increases by x%, where x is a random value from the uniform distribution on the interval 0 to 5. (Note that the value of x changes every minute!) You can sample a random value from this uniform distribution using <code>runif(1,0,5)</code>.</p>
+<p>Write a function called <code>drip</code> that takes 2 parameters: <code>rate</code> and <code>minutes</code>. <code>rate</code> is the initial poisson rate parameter of the drips. <code>minutes</code> is the number of minutes the sink is dripping. This function should return the total number of drips in the provided <code>minutes</code>. (15 points)</p>
+<p>Using the <code>drips</code> function you just defined, perform a simulation with 10,000 repetitions with an initial <code>rate</code> of 1 for 120 <code>minutes</code> (2 hours). Assign the results of your simulation into a vector called <code>drip_counts</code>. At the end of this step, the <code>drip_counts</code> vector should contain 10,000 values, each representing the total number of drips after 2 hours with an initial <code>rate</code> parameter of 1. (10 points)</p>
+<p>Using the <code>drip_counts</code> vector, calculate the probability that the total number of drips exceeds 700 after 2 hours. <em>Make sure you assess and report your Monte Carlo (simulation) error (build a confidence interval).</em> (20 points)</p>
+<p>Suppose you are interested in testing the null hypothesis that the initial rate parameter is 1 versus the alternative hypothesis that the initial rate is larger than 1. You observe 876 drips in 2 hours. What is the associated p-value? <em>Again make sure that you assess and report your Monte Carlo (simulation) error.</em> (10 points)</p>
+<p>Using a 0.05 level of significance, what conclusion do you make regarding the null hypothesis? (5 points)</p>
+<h2 id="march-madness-45-points">March Madness (45 points)</h2>
+<p>The NCAA tournament (fondly referred to as March Madness) is a collegiate basketball tournament that takes place every spring. The tournament is made up of 64 teams who play a single-elimination tournament to determine the national champion. The tournament is divided into 4 regions of 16 teams, and teams are ranked 1 - 16 in each region.</p>
+<p>In the first round of the tournament, each number 1 ranked team plays the number 16 ranked team in their region (So there are 4 games played between 1 and 16 seeded teams). This year, For the first time ever, a 16 ranked team actually beat a number 1 ranked team. The victory brings the historical win-loss record for 16 seeds vs. 1 seeds to 1-135. Even though this had never previously occurred, odds makers had calculated the likelihood of this event to be 1:54.</p>
+<p>Write a function called <code>tournament</code> that takes 1 parameter: <code>odds</code>. <code>odds</code> represents the likelihood of a 16 seed beating a 1 seed. This function should return the number of years (tournaments) that it takes before a 16 seed beats a 1 seed. (15 points)</p>
+<p>Using the <code>tournament</code> function defined above, perform a simulation with 10,000 repetitions with the historical odds ratio (1/136). Assign the results of your simulation into a vector called <code>historical_odds</code>. At the end of this step, the <code>historical_odds</code> vector should contain 10,000 values, each representing the number of years until a 16 seed beats a 1 seed given the historical odds ratio. (10 points)</p>
+<p>Using the <code>tournament</code> function defined above, perform a simulation with 10,000 repetitions with the calculated odds ratio (1/54). Assign the results of your simulation into a vector called <code>calculated_odds</code>. At the end of this step, the <code>calculated_odds</code> vector should contain 10,000 values, each representing the number of years until a 16 seed beats a 1 seed given the calculated odds ratio. (10 points)</p>
+<p>Calculate the estimate for the number of years until a 16 seed beats a 1 seed for both the <code>historical_odds</code> and <code>calculated_odds</code> vectors. <em>Make sure that you assess and report your Monte Carlo (simulation) error for each estimate</em>. (10 points)</p>
 
 </body>
 </html>
